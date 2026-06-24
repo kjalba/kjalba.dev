@@ -1,0 +1,7 @@
+[author]
+  name = "kjalba"
+  headline = "Software Engineer"
+  bio = "Building things, breaking things, learning along the way."
+  links = [
+    { github = "https://github.com/kjalba" },
+  ]

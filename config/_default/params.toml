@@ -1,0 +1,110 @@
+colorScheme = "slate"
+defaultAppearance = "dark"
+autoSwitchAppearance = false
+
+enableSearch = true
+enableCodeCopy = true
+enableImageLazyLoading = true
+mainSections = ["blog", "devlog"]
+
+[homepage]
+  layout = "profile"
+  homepageImage = ""
+  showRecent = true
+  showRecentItems = 5
+  showMoreLink = true
+  showMoreLinkDest = "/blog"
+  cardView = false
+  cardViewScreenWidth = false
+  layoutBackgroundBlur = false
+
+[header]
+  layout = "basic"
+
+[footer]
+  showMenu = false
+  showCopyright = true
+  showThemeAttribution = false
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[article]
+  showDate = true
+  showViews = false
+  showLikes = false
+  showDateUpdated = false
+  showAuthor = true
+  showHero = false
+  heroStyle = "basic"
+  showBreadcrumbs = false
+  showDraftLabel = true
+  showEdit = false
+  showHeadingAnchors = true
+  showPagination = true
+  invertPagination = false
+  showReadingTime = true
+  showTableOfContents = true
+  showTaxonomies = true
+  showAuthorsBadges = false
+  showWordCount = false
+  showSummary = true
+  sharingLinks = []
+  showZenMode = false
+
+[list]
+  showHero = false
+  heroStyle = "basic"
+  showBreadcrumbs = false
+  showSummary = true
+  showViews = false
+  showLikes = false
+  showTableOfContents = false
+  groupByYear = true
+  cardView = true
+  cardViewScreenWidth = false
+  constrainItemsWidth = false
+
+[sitemap]
+  excludedKinds = []
+
+[taxonomy]
+  showTermCount = true
+  showHero = false
+  heroStyle = "basic"
+  showBreadcrumbs = false
+  showViews = false
+  showLikes = false
+  showTableOfContents = true
+  cardView = true
+
+[term]
+  showHero = false
+  heroStyle = "basic"
+  showBreadcrumbs = false
+  showViews = false
+  showLikes = false
+  showTableOfContents = true
+  groupByYear = false
+  cardView = true
+
+[firebase]
+  apiKey = ""
+  authDomain = ""
+  projectId = ""
+  storageBucket = ""
+  messagingSenderId = ""
+  appId = ""
+  measurementId = ""
+
+[fathomAnalytics]
+  site = ""
+
+[umamiAnalytics]
+  websiteId = ""
+
+[buymeacoffee]
+  identifier = ""
+  globalWidget = false
+
+[verificationCodes]
+  google = ""
