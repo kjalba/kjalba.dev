@@ -1,4 +1,5 @@
 baseURL = "https://kjalba.dev/"
+title = "kjalba"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true

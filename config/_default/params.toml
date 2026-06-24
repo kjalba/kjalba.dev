@@ -22,11 +22,13 @@ mainSections = ["blog", "devlog"]
   layout = "basic"
 
 [footer]
-  showMenu = false
+  showMenu = true
   showCopyright = true
   showThemeAttribution = false
   showAppearanceSwitcher = true
   showScrollToTop = true
+
+copyright = "&copy; { year } KJ Alba"
 
 [article]
   showDate = true
@@ -60,7 +62,7 @@ mainSections = ["blog", "devlog"]
   showLikes = false
   showTableOfContents = false
   groupByYear = true
-  cardView = true
+  cardView = false
   cardViewScreenWidth = false
   constrainItemsWidth = false
 

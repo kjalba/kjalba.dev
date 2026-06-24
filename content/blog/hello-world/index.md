@@ -1,6 +1,6 @@
 ---
 title: "Hello World"
-date: 2025-07-15
+date: 2026-06-24
 description: "First post — what this site is and why I built it."
 tags: ["meta", "site"]
 draft: false
