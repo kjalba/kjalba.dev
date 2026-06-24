@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section class="mt-8 mb-12">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {{ range sort .Pages "Params.featured" "desc" }}
+    <article class="flex flex-col rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 overflow-hidden hover:border-primary-500 dark:hover:border-primary-400 transition-colors duration-200">
+      <div class="p-5 flex flex-col flex-1">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h2 class="text-base font-semibold text-neutral-800 dark:text-neutral-100 leading-snug">
+            {{ if .Params.externalUrl }}
+              <a href="{{ .Params.externalUrl }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400">
+                {{ .Title }}
+              </a>
+            {{ else }}
+              <a href="{{ .Permalink }}" class="hover:text-primary-600 dark:hover:text-primary-400">
+                {{ .Title }}
+              </a>
+            {{ end }}
+          </h2>
+          {{ with .Params.badge }}
+          <span class="shrink-0 text-xs font-medium px-2 py-0.5 rounded-full
+            {{ if eq . "Live" }}bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300
+            {{ else if eq . "WIP" }}bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300
+            {{ else }}bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300
+            {{ end }}">{{ . }}</span>
+          {{ end }}
+        </div>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 flex-1 leading-relaxed">{{ .Description }}</p>
+        <div class="mt-4 flex flex-wrap gap-1.5">
+          {{ range .Params.tags }}
+          <span class="text-xs px-2 py-0.5 rounded bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ with .Params.externalUrl }}
+        <div class="mt-4">
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs text-primary-600 dark:text-primary-400 hover:underline font-medium">
+            View project →
+          </a>
+        </div>
+        {{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

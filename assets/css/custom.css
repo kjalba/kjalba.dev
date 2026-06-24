@@ -1,0 +1,56 @@
+/* ─── Terminal prompt style ──────────────────────────────────────────────── */
+
+/* Inline code blocks that act as terminal prompts on the homepage */
+.home-bio code,
+article.prose code:first-child {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", "JetBrains Mono", monospace;
+}
+
+/* The `~/kjalba $ whoami` opener — rendered as a code block in markdown */
+/* Blowfish renders homepage .Content inside .prose, so target that */
+.prose code {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", "JetBrains Mono", monospace;
+  font-size: 0.875em;
+}
+
+/* ─── Profile / homepage tweaks ─────────────────────────────────────────── */
+
+/* Tighten the homepage profile card bio text */
+#home-profile .text-neutral-500 {
+  font-size: 0.925rem;
+  line-height: 1.65;
+}
+
+/* ─── Navigation ─────────────────────────────────────────────────────────── */
+
+/* Subtle monospace feel for nav links */
+header nav a {
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Article / blog tweaks ─────────────────────────────────────────────── */
+
+/* Better code block appearance */
+pre code {
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* ─── Projects grid ──────────────────────────────────────────────────────── */
+
+/* Ensure project cards in the custom layout look consistent with the theme */
+.project-tag {
+  font-family: ui-monospace, monospace;
+}
+
+/* ─── Devlog section marker ──────────────────────────────────────────────── */
+
+/* Small "AI-authored" badge on Dev Log entries — add class="ai-badge" in templates if desired */
+.ai-badge {
+  font-size: 0.7rem;
+  font-family: ui-monospace, monospace;
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
