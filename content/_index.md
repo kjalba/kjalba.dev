@@ -5,6 +5,8 @@ description: "Software Engineer"
 
 `~/kjalba $ whoami`
 
-Software engineer who likes building things end-to-end — from infrastructure to interfaces. I care about the craft: clean systems, thoughtful decisions, and code that's honest about what it does.
+AI Engineer and Customer Success @ IBM. Really good at bridging the gap between
+technical work and customer need.
 
-Currently building in public. Writing about the interesting problems and the dead ends.
+Currently focused on mastering systems computing and optimizing AI workflows
+(when I'm not too busy maximizing shareholder value). 

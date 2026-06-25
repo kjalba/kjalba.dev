@@ -1,13 +1,16 @@
 ---
 title: "About"
-description: "kjalba — software engineer."
+description: "kjalba — AI engineer."
 showTableOfContents: false
 layout: "simple"
 ---
 
 `~/kjalba $ cat about.txt`
 
-Software engineer. I build end-to-end — backend systems, infrastructure, product. I care about clear code, honest tradeoffs, and shipping things that actually work.
+I'm an AI CSE interested in the impact of agentic AI, both for businesses and
+regular people like myself. There's obviously a lot of opportunity, but there is
+also a whole new realm of risk, and I want to help people get the most out of AI
+while minimizing risk.
 
 ---
 
@@ -15,31 +18,16 @@ Software engineer. I build end-to-end — backend systems, infrastructure, produ
 
 | Role | Company | Period |
 |---|---|---|
-| Software Engineer | *[update me]* | *[dates]* |
+| AI Customer Success Engineer | IBM | Mar 2025 – Current |
+| Software & Analytics Engineer | [Workhelix](https://www.workhelix.com/) | Nov 2023 – Mar 2025 |
 
----
-
-## Skills
-
-**Languages:** *[e.g. Go, TypeScript, Python, Rust]*
-
-**Infrastructure:** *[e.g. Kubernetes, Docker, Cloudflare, AWS]*
-
-**Tools:** *[e.g. Hugo, Git, PostgreSQL]*
+[Workhelix](https://www.workhelix.com/) is a startup founded by Andrew McAfee, Erik Brynjolfsson, and Daniel Rock — economists known for their [joint research with OpenAI](https://openai.com/index/gpts-are-gpts/) on how AI affects jobs. My work there focused on expanding that research across a broader set of occupations, generating scores for how much each task within a job is augmentable or automatable by AI.
 
 ---
 
 ## Education
 
-*[Your degree / institution / year]*
-
----
-
-## Links
-
-- GitHub: [github.com/kjalba](https://github.com/kjalba)
-- Site: [kjalba.dev](https://kjalba.dev)
-
----
-
-*CV PDF available on request.*
+| Degree | Institution | Expected |
+|---|---|---|
+| M.S. Computer Science | Georgia Institute of Technology | May 2028 |
+| B.A. Mathematics & B.A. Computer Science | Lake Forest College | — |
