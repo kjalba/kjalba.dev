@@ -1,0 +1,55 @@
+<footer id="site-footer" class="py-10 print:hidden">
+  <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+    {{/* Copyright + name */}}
+    {{ if .Site.Params.footer.showCopyright | default true }}
+      <p class="text-sm text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
+        {{- with replace .Site.Params.copyright "{ year }" now.Year }}
+          {{ . | markdownify }}
+        {{- else }}
+          &copy; {{ now.Format "2006" }} {{ .Site.Params.Author.name | markdownify }}
+        {{- end }}
+      </p>
+    {{ end }}
+
+    {{/* Social links inline */}}
+    {{ if .Site.Menus.footer }}
+    <nav class="flex flex-row gap-x-5 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+      {{ range .Site.Menus.footer }}
+        <a
+          class="decoration-primary-500 hover:text-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center gap-1"
+          href="{{ .URL }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="{{ .Title }}">
+          {{ if .Pre }}
+            <span {{ if and .Pre .Name }}class="mr-1"{{ end }}>
+              {{ partial "icon.html" .Pre }}
+            </span>
+          {{ end }}
+          {{ .Name | markdownify }}
+        </a>
+      {{ end }}
+    </nav>
+    {{ end }}
+
+    {{/* Appearance switcher */}}
+    {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
+      <div class="flex items-center gap-1 text-sm text-neutral-500 dark:text-neutral-400">
+        {{ partial "meta/zen-mode.html" . }}
+      </div>
+    {{ end }}
+  </div>
+
+  {{ if not .Site.Params.disableImageZoom | default true }}
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  {{ end }}
+  {{ if templates.Exists "partials/extend-footer.html" }}
+    {{ partialCached "extend-footer.html" . }}
+  {{ end }}
+</footer>
