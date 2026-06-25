@@ -1,42 +1,45 @@
 {{ define "main" }}
 <section class="mt-8 mb-12">
-  <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;">
     {{ range sort .Pages "Params.featured" "desc" }}
-    <article class="flex flex-col rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 shadow-sm hover:shadow-md hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-200">
-      <div class="p-6 flex flex-col flex-1">
-        <div class="flex items-start justify-between gap-2 mb-2">
-          <h2 class="text-base font-semibold text-neutral-800 dark:text-neutral-100 leading-snug">
+    <article style="border:1px solid;border-color:rgb(229 231 235);border-radius:0.75rem;background:rgb(249 250 251);display:flex;flex-direction:column;transition:box-shadow 0.15s,border-color 0.15s;box-shadow:0 1px 3px rgba(0,0,0,0.07);" class="dark:[border-color:rgb(64_71_80)] dark:[background:rgb(38_42_48)] hover:[box-shadow:0_4px_12px_rgba(0,0,0,0.15)]">
+      <div style="padding:1.5rem;display:flex;flex-direction:column;flex:1;">
+
+        {{/* Title + badge row */}}
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:0.5rem;margin-bottom:0.5rem;">
+          <h2 style="font-size:1rem;font-weight:600;line-height:1.4;" class="text-neutral-800 dark:text-neutral-100">
             {{ if .Params.externalUrl }}
-              <a href="{{ .Params.externalUrl }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400">
-                {{ .Title }}
-              </a>
+              <a href="{{ .Params.externalUrl }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-400">{{ .Title }}</a>
             {{ else }}
-              <a href="{{ .Permalink }}" class="hover:text-primary-600 dark:hover:text-primary-400">
-                {{ .Title }}
-              </a>
+              <a href="{{ .Permalink }}" class="hover:text-primary-600 dark:hover:text-primary-400">{{ .Title }}</a>
             {{ end }}
           </h2>
           {{ with .Params.badge }}
-          <span class="shrink-0 text-xs font-medium px-2 py-0.5 rounded-full
-            {{ if eq . "Live" }}bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300
-            {{ else if eq . "WIP" }}bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300
-            {{ else }}bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300
+          <span style="flex-shrink:0;font-size:0.7rem;font-weight:600;padding:2px 8px;border-radius:9999px;white-space:nowrap;
+            {{ if eq . "Live" }}background:#dcfce7;color:#15803d;
+            {{ else if eq . "WIP" }}background:#fef9c3;color:#a16207;
+            {{ else }}background:#e5e7eb;color:#4b5563;
             {{ end }}">{{ . }}</span>
           {{ end }}
         </div>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 flex-1 leading-relaxed">{{ .Description }}</p>
-        <div class="mt-4 flex flex-wrap gap-1.5">
+
+        {{/* Description */}}
+        <p style="font-size:0.875rem;line-height:1.6;flex:1;margin-bottom:1rem;" class="text-neutral-600 dark:text-neutral-400">{{ .Description }}</p>
+
+        {{/* Tech tags */}}
+        <div style="display:flex;flex-wrap:wrap;gap:0.375rem;margin-bottom:1rem;">
           {{ range .Params.tags }}
-          <span class="text-xs px-2 py-0.5 rounded bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400">{{ . }}</span>
+          <span style="font-size:0.7rem;padding:2px 8px;border-radius:0.25rem;white-space:nowrap;" class="bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400">{{ . }}</span>
           {{ end }}
         </div>
+
+        {{/* Link */}}
         {{ with .Params.externalUrl }}
-        <div class="mt-4">
-          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs text-primary-600 dark:text-primary-400 hover:underline font-medium">
-            View project →
-          </a>
-        </div>
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" style="font-size:0.75rem;font-weight:500;" class="text-primary-600 dark:text-primary-400 hover:underline">
+          View project →
+        </a>
         {{ end }}
+
       </div>
     </article>
     {{ end }}

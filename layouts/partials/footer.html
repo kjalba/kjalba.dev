@@ -32,12 +32,6 @@
     </nav>
     {{ end }}
 
-    {{/* Appearance switcher */}}
-    {{ if .Site.Params.footer.showAppearanceSwitcher | default false }}
-      <div class="flex items-center gap-1 text-sm text-neutral-500 dark:text-neutral-400">
-        {{ partial "meta/zen-mode.html" . }}
-      </div>
-    {{ end }}
   </div>
 
   {{ if not .Site.Params.disableImageZoom | default true }}
