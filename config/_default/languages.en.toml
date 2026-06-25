@@ -1,8 +1,11 @@
-[author]
-  name = "KJ Alba"
-  headline = "Software Engineer"
-  links = [
-    { github = "https://github.com/kjalba" },
-    { linkedin = "https://linkedin.com/in/kjalba" },
-    { youtube = "https://youtube.com/@kjalba" },
-  ]
+title = "kjalba"
+
+[params]
+  [params.author]
+    name = "KJ Alba"
+    headline = "Software Engineer"
+    links = [
+      { github = "https://github.com/kjalba" },
+      { linkedin = "https://linkedin.com/in/kjalba" },
+      { youtube = "https://youtube.com/@kjalba" },
+    ]
