@@ -21,6 +21,8 @@ while minimizing risk.
 | AI Customer Success Engineer | IBM | Mar 2025 – Current |
 | Software & Analytics Engineer | [Workhelix](https://www.workhelix.com/) | Nov 2023 – Mar 2025 |
 
+I help enterprise customers adopt and get value from IBM's AI products — working across technical onboarding, use case discovery, and hands-on implementation to drive successful outcomes.
+
 [Workhelix](https://www.workhelix.com/) is a startup founded by Andrew McAfee, Erik Brynjolfsson, and Daniel Rock — economists known for their [joint research with OpenAI](https://openai.com/index/gpts-are-gpts/) on how AI affects jobs. My work there focused on expanding that research across a broader set of occupations, generating scores for how much each task within a job is augmentable or automatable by AI.
 
 ---
@@ -30,4 +32,4 @@ while minimizing risk.
 | Degree | Institution | Expected |
 |---|---|---|
 | M.S. Computer Science | Georgia Institute of Technology | May 2028 |
-| B.A. Mathematics & B.A. Computer Science | Lake Forest College | — |
+| B.A. Mathematics & B.A. Computer Science | Lake Forest College | May 2023 |
