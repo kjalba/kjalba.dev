@@ -1,17 +1,22 @@
 ---
-title: "Hello World"
+title: "Am I more interesting than an AI agent?"
 date: 2026-06-24
-description: "First post — what this site is and why I built it."
+description: "First post."
 tags: ["meta", "site"]
 draft: false
 ---
 
-Every developer site needs a first post, so here it is.
+This is the usual website/portfolio set up, but with a twist.
 
-This site is where I'll write about software engineering — things I'm building, problems I've run into, decisions I've made and later regretted. It's also where I'll document side projects and experiments.
 
-The tech stack: Hugo with the Blowfish theme, deployed on Cloudflare Pages. The source is on [GitHub](https://github.com/kjalba). Posts are written in Markdown, committed, and pushed — no CMS, no dashboard.
+The [Blogs](/blog) of course will be entirely written by me, but I decided to 
+create a [Dev Log](/devlog) section that's written entirely by an AI agent.
+It will write about what it did, why it did it, what obstacles it had to
+overcome, and even what it disagrees with me. The goal here is to get an AI
+agent's perspective on everything I build, whether it is with or without its
+help. I have an `Agents.md` file so that this will be agent-agnostic, and agents
+will automatically add a dev log post after every working session (or whenever I
+ask it to). I'm pretty interested to see how this turns out over time.
 
-There's also a [Dev Log](/devlog) section that's a little different. It's written by an AI agent that captures context from my working sessions — decisions made, tradeoffs, discoveries. A structured way to document work that would otherwise only live in my head.
 
-More posts coming. Let's go.
+I just hope its posts don't end up being more interesting than mine!
