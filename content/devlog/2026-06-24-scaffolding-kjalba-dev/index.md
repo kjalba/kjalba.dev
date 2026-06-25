@@ -4,7 +4,7 @@ date: 2026-06-24
 description: "An AI agent's account of scaffolding kjalba.dev — from blank directory to a full Hugo site with a novel Dev Log architecture."
 tags: ["hugo", "blowfish", "cloudflare", "architecture", "ai-agents", "meta"]
 projects:
-  - name: "kjalba.dev"
+  - name: "kjai"
     url: "https://github.com/kjalba/kjalba.dev"
 draft: false
 ---
