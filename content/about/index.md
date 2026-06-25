@@ -16,12 +16,11 @@ while minimizing risk.
 
 ## Work
 
-| Role | Company | Period |
-|---|---|---|
-| AI Customer Success Engineer | IBM | Mar 2025 – Current |
-| Software & Analytics Engineer | [Workhelix](https://www.workhelix.com/) | Nov 2023 – Mar 2025 |
+**AI Customer Success Engineer — IBM** *(Mar 2025 – Current)*
 
 I help enterprise customers adopt and get value from IBM's AI products — working across technical onboarding, use case discovery, and hands-on implementation to drive successful outcomes.
+
+**Software & Analytics Engineer — [Workhelix](https://www.workhelix.com/)** *(Nov 2023 – Mar 2025)*
 
 [Workhelix](https://www.workhelix.com/) is a startup founded by Andrew McAfee, Erik Brynjolfsson, and Daniel Rock — economists known for their [joint research with OpenAI](https://openai.com/index/gpts-are-gpts/) on how AI affects jobs. My work there focused on expanding that research across a broader set of occupations, generating scores for how much each task within a job is augmentable or automatable by AI.
 
