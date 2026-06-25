@@ -1,15 +1,9 @@
 <footer id="site-footer" class="py-10 print:hidden">
   <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-    {{/* Copyright + name */}}
-    {{ if .Site.Params.footer.showCopyright | default true }}
-      <p class="text-sm text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
-        {{- with replace .Site.Params.copyright "{ year }" now.Year }}
-          {{ . | markdownify }}
-        {{- else }}
-          &copy; {{ now.Format "2006" }} {{ .Site.Params.Author.name | markdownify }}
-        {{- end }}
-      </p>
-    {{ end }}
+    {{/* Copyright */}}
+    <p class="text-sm text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
+      &copy; {{ now.Format "2006" }} KJ Alba
+    </p>
 
     {{/* Social links inline */}}
     {{ if .Site.Menus.footer }}
