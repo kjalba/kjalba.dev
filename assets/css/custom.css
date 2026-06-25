@@ -15,6 +15,12 @@ article.prose code:first-child {
 
 /* ─── Profile / homepage tweaks ─────────────────────────────────────────── */
 
+/* Left-align the bio content below the name/headline — the profile partial
+   centres the whole card with text-center, so we override just the prose section */
+#home-profile section.prose {
+  text-align: left;
+}
+
 /* Tighten the homepage profile card bio text */
 #home-profile .text-neutral-500 {
   font-size: 0.925rem;
