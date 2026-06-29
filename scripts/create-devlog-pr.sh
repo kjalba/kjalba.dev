@@ -10,7 +10,7 @@ COMMIT_CREATED=0
 cleanup() {
   local exit_code="$1"
 
-  if [[ "$exit_code" -ne 0 && -n "$POST_PATH" && -f "$POST_PATH" ]]; then
+  if [[ "$exit_code" -ne 0 && "$COMMIT_CREATED" -eq 0 && -n "$POST_PATH" && -f "$POST_PATH" ]]; then
     rm -f "$POST_PATH"
     rmdir "$(dirname "$POST_PATH")" 2>/dev/null || true
   fi
@@ -57,7 +57,9 @@ BRANCH_CREATED=1
 git add "$POST_PATH"
 git commit -m "Add devlog draft"
 COMMIT_CREATED=1
+git push -u origin "$BRANCH_NAME"
 gh pr create \
+  --head "$BRANCH_NAME" \
   --title "Add devlog draft" \
   --body "Automated devlog draft import from shared feed. Please review carefully for tone and sensitive information before merging."
 
