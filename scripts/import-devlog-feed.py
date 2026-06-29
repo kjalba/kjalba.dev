@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 from dataclasses import dataclass
 from datetime import date
@@ -22,10 +23,13 @@ TAG_PATTERN = re.compile(r"[A-Za-z0-9]+")
 SENSITIVE_PATTERN = re.compile(
     r"(?i)(api[_ -]?key|access[_ -]?token|secret|password|passwd|private key|authorization:|bearer\s+[A-Za-z0-9._-]+)"
 )
+SOURCE_ENTRY_ID_PATTERN = re.compile(r"^sourceEntryIds:\s*$", re.MULTILINE)
+SOURCE_ENTRY_ID_VALUE_PATTERN = re.compile(r'^\s*-\s*"(?P<id>[0-9a-f]{64})"\s*$', re.MULTILINE)
 
 
 @dataclass
 class FeedEntry:
+    entry_id: str
     raw: str
     entry_date: date
     project: str
@@ -71,8 +75,10 @@ def parse_entry(raw_entry: str) -> FeedEntry:
     if not all([raw_date, project, repo, agent, session_duration]):
         raise ValueError("Feed entry is missing one or more required fields.")
 
+    normalized_raw = raw_entry.strip()
     return FeedEntry(
-        raw=raw_entry.strip(),
+        entry_id=hashlib.sha256(normalized_raw.encode("utf-8")).hexdigest(),
+        raw=normalized_raw,
         entry_date=date.fromisoformat(raw_date),
         project=project.strip(),
         repo=repo.strip(),
@@ -104,6 +110,19 @@ def sanitize_slug(value: str) -> str:
     return slug or "devlog"
 
 
+def next_post_dir(output_dir: Path, base_name: str) -> Path:
+    candidate = output_dir / base_name
+    if not candidate.exists():
+        return candidate
+
+    suffix = 2
+    while True:
+        candidate = output_dir / f"{base_name}-{suffix}"
+        if not candidate.exists():
+            return candidate
+        suffix += 1
+
+
 def summarize_tags(entries: List[FeedEntry]) -> List[str]:
     tags: List[str] = []
     for entry in entries:
@@ -122,11 +141,22 @@ def ensure_safe(entries: List[FeedEntry]) -> None:
             raise ValueError(f"Sensitive-looking content detected in feed entry for {entry.project} on {entry.entry_date}.")
 
 
+def imported_entry_ids(output_dir: Path) -> set[str]:
+    imported_ids: set[str] = set()
+    for path in output_dir.rglob("index.md"):
+        content = path.read_text()
+        if not SOURCE_ENTRY_ID_PATTERN.search(content):
+            continue
+        imported_ids.update(match.group("id") for match in SOURCE_ENTRY_ID_VALUE_PATTERN.finditer(content))
+    return imported_ids
+
+
 def build_post(entries: List[FeedEntry]) -> str:
     post_date = max(entry.entry_date for entry in entries)
     title = f"{entries[0].project}: AI dev log"
     description = entries[0].summary.splitlines()[0]
     tags = ", ".join(f'"{tag}"' for tag in summarize_tags(entries))
+    source_entry_ids = "\n".join(f'  - "{entry.entry_id}"' for entry in entries)
     projects = "\n".join(
         f"  - name: \"{entry.project}\"\n    url: \"{entry.repo}\""
         for entry in {entry.project: entry for entry in entries}.values()
@@ -154,6 +184,7 @@ def build_post(entries: List[FeedEntry]) -> str:
         f"date: {post_date.isoformat()}\n"
         f"description: \"{description}\"\n"
         f"tags: [{tags}]\n"
+        f"sourceEntryIds:\n{source_entry_ids}\n"
         f"projects:\n{projects}\n"
         f"draft: true\n"
         f"---\n\n"
@@ -174,14 +205,18 @@ def main() -> int:
     entries = [parse_entry(match.group(1)) for match in ENTRY_PATTERN.finditer(raw_feed)]
     ensure_safe(entries)
 
-    latest_published = latest_devlog_date(output_dir)
-    pending = [entry for entry in entries if latest_published is None or entry.entry_date > latest_published]
+    already_imported = imported_entry_ids(output_dir)
+    if already_imported:
+        pending = [entry for entry in entries if entry.entry_id not in already_imported]
+    else:
+        latest_published = latest_devlog_date(output_dir)
+        pending = [entry for entry in entries if latest_published is None or entry.entry_date > latest_published]
     if not pending:
         print("No new devlog entries to import.")
         return 0
 
     slug = sanitize_slug(pending[0].project)
-    post_dir = output_dir / f"{max(entry.entry_date for entry in pending).isoformat()}-{slug}"
+    post_dir = next_post_dir(output_dir, f"{max(entry.entry_date for entry in pending).isoformat()}-{slug}")
     post_dir.mkdir(parents=True, exist_ok=False)
     post_path = post_dir / "index.md"
     post_path.write_text(build_post(pending))
