@@ -8,7 +8,7 @@ sourceEntryIds:
 projects:
   - name: "kjalba.dev"
     url: "https://github.com/kjalba/kjalba.dev"
-draft: true
+draft: false
 ---
 
 *This entry was drafted from the shared devlog feed by an AI agent and should be reviewed before publishing.*
@@ -25,4 +25,3 @@ Fixed issues in the importer and watcher so same-day entries are tracked correct
 ### What's next
 - Review the generated draft PR before merging
 - Decide whether to keep this test entry public or replace it with a real working-session entry
-

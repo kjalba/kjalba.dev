@@ -191,7 +191,7 @@ def build_post(entries: List[FeedEntry]) -> str:
         f"tags: [{tags}]\n"
         f"sourceEntryIds:\n{source_entry_ids}\n"
         f"projects:\n{projects}\n"
-        f"draft: true\n"
+        f"draft: false\n"
         f"---\n\n"
         + "".join(body_parts)
     )
