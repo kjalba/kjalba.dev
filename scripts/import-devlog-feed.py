@@ -21,10 +21,11 @@ SECTION_PATTERN = re.compile(
 PROJECT_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}-(.+)$")
 TAG_PATTERN = re.compile(r"[A-Za-z0-9]+")
 SENSITIVE_PATTERN = re.compile(
-    r"(?i)(api[_ -]?key|access[_ -]?token|secret|password|passwd|private key|authorization:|bearer\s+[A-Za-z0-9._-]+)"
+    r"(?i)(api[_-]?key|access[_-]?token|secret|password|passwd|private key|authorization:|bearer\s+[A-Za-z0-9._-]+)"
 )
 SOURCE_ENTRY_ID_PATTERN = re.compile(r"^sourceEntryIds:\s*$", re.MULTILINE)
 SOURCE_ENTRY_ID_VALUE_PATTERN = re.compile(r'^\s*-\s*"(?P<id>[0-9a-f]{64})"\s*$', re.MULTILINE)
+FENCED_CODE_BLOCK_PATTERN = re.compile(r"^```.*?^```[ \t]*$", re.DOTALL | re.MULTILINE)
 
 
 @dataclass
@@ -59,6 +60,10 @@ def parse_args() -> argparse.Namespace:
 
 def parse_bullets(block: str) -> List[str]:
     return [line[2:].strip() for line in block.strip().splitlines() if line.strip().startswith("- ")]
+
+
+def strip_fenced_code_blocks(content: str) -> str:
+    return FENCED_CODE_BLOCK_PATTERN.sub("", content)
 
 
 def parse_entry(raw_entry: str) -> FeedEntry:
@@ -201,7 +206,7 @@ def main() -> int:
     if not feed_path.exists():
         raise SystemExit(f"Feed file not found: {feed_path}")
 
-    raw_feed = feed_path.read_text()
+    raw_feed = strip_fenced_code_blocks(feed_path.read_text())
     entries = [parse_entry(match.group(1)) for match in ENTRY_PATTERN.finditer(raw_feed)]
     ensure_safe(entries)
 
