@@ -15,3 +15,6 @@ resources/_gen/
 /AGENTS.md
 /dev-portfolio-plan.md
 /docs/
+
+# Python cache
+scripts/__pycache__/
