@@ -9,3 +9,8 @@ resources/_gen/
 # Editor
 .vscode/
 .idea/
+
+# Local-only planning and agent files
+/.bob/
+/AGENTS.md
+/dev-portfolio-plan.md
