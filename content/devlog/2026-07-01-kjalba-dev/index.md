@@ -15,26 +15,6 @@ draft: false
 ---
 
 *This entry was drafted from the shared devlog feed by an AI agent and should be reviewed before publishing.*
-## 2026-06-24 — kjalba.dev
-**Agent:** bob  **Session length:** long
-Scaffolded the personal portfolio site using Hugo and the Blowfish theme. Set up the full config directory structure, all section pages (blog, projects, devlog, youtube, about), and the agent-agnostic Dev Log architecture. The site builds and deploys via Cloudflare Pages.
-### Decisions made
-- Chose Hugo + Blowfish over Astro because Blowfish directly matches the merox.dev aesthetic we were inspired by, and Hugo build speed is exceptional
-- Chose Cloudflare Pages over GitHub Pages for better CDN and free analytics
-- Chose slate colour scheme (dark mode default) for clean technical aesthetic
-- Chose shared ~/dev-journal/DEVLOG_FEED.md over single-agent approach so any tool (Cursor, Claude Code, Windsurf, etc.) can contribute -- agent-agnostic via AGENTS.md standard
-- Chose profile homepage layout over hero because content-forward is right at launch
-### Interesting discoveries
-- Blowfish v2 uses Hugo Modules (not themes/ git submodule) -- much cleaner to update
-- Hugo has a built-in youtube shortcode so no third-party dependency needed for the YouTube section
-- AGENTS.md is now an open Linux Foundation standard supported across Claude Code, Cursor, Windsurf, Copilot, Gemini CLI
-- YouTube thumbnail URL pattern https://img.youtube.com/vi/{ID}/maxresdefault.jpg works without any API key
-### What's next
-- Add profile photo to assets/img/avatar.jpg
-- Fill in real work history in about/index.md
-- Push to GitHub and connect Cloudflare Pages
-- Add first real blog post
-
 ## 2026-07-01 — chess-trainer-cli
 **Agent:** claude-code  **Session length:** medium
 Added random puzzle support and an interactive launch menu to the chess trainer CLI.
@@ -55,3 +35,22 @@ Random puzzles support 70+ Lichess theme filters and 5 difficulty levels, authen
 - Consider caching the batch locally so multiple runs don't re-fetch the same 50 puzzles
 - The `rated` field in the completion POST could let users opt into Lichess rating updates from the CLI
 
+## 2026-06-24 — kjalba.dev
+**Agent:** bob  **Session length:** long
+Scaffolded the personal portfolio site using Hugo and the Blowfish theme. Set up the full config directory structure, all section pages (blog, projects, devlog, youtube, about), and the agent-agnostic Dev Log architecture. The site builds and deploys via Cloudflare Pages.
+### Decisions made
+- Chose Hugo + Blowfish over Astro because Blowfish directly matches the merox.dev aesthetic we were inspired by, and Hugo build speed is exceptional
+- Chose Cloudflare Pages over GitHub Pages for better CDN and free analytics
+- Chose slate colour scheme (dark mode default) for clean technical aesthetic
+- Chose shared ~/dev-journal/DEVLOG_FEED.md over single-agent approach so any tool (Cursor, Claude Code, Windsurf, etc.) can contribute -- agent-agnostic via AGENTS.md standard
+- Chose profile homepage layout over hero because content-forward is right at launch
+### Interesting discoveries
+- Blowfish v2 uses Hugo Modules (not themes/ git submodule) -- much cleaner to update
+- Hugo has a built-in youtube shortcode so no third-party dependency needed for the YouTube section
+- AGENTS.md is now an open Linux Foundation standard supported across Claude Code, Cursor, Windsurf, Copilot, Gemini CLI
+- YouTube thumbnail URL pattern https://img.youtube.com/vi/{ID}/maxresdefault.jpg works without any API key
+### What's next
+- Add profile photo to assets/img/avatar.jpg
+- Fill in real work history in about/index.md
+- Push to GitHub and connect Cloudflare Pages
+- Add first real blog post
